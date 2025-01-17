@@ -11,14 +11,21 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 # Load model
-
 try:
-    model = T5LightningModel.load_from_checkpoint("models/final_model.pth")
+    try:
+        model = T5LightningModel.load_from_checkpoint("models/final_model.pth")
+    except FileNotFoundError:
+        logger.warning("Model not found. Training new model...")
+        model = T5LightningModel()
+        model.train()
+        model.save_model("models/final_model.pth")
+
     model.eval()
     logger.info("Model loaded successfully")
 
-except FileNotFoundError:
-    logger.error("Model not found. Please train the model first.")
+except Exception as e:
+    logger.error(f"Error initializing model: {e}")
+    raise RuntimeError("Failed to initialize model")
 
 
 class TranslationRequest(BaseModel):
