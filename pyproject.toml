@@ -53,5 +53,5 @@ select = ["I"]
 omit = ["tests/*"]
 
 [[tool.mypy.overrides]]
-module = ["transformers.*", "datasets.*"]
+module = ["transformers.*", "datasets.*", "reports.*"]
 ignore_missing_imports = true
