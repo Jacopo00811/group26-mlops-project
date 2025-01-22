@@ -146,6 +146,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 3 fill here ---
 
+transformers
+
 ## Coding environment
 
 > In the following section we are interested in learning more about you local development environment. This includes
@@ -156,15 +158,21 @@ s193992, s215225, s215158, s215133, s242507
 > **Explain how you managed dependencies in your project? Explain the process a new team member would have to go**
 > **through to get an exact copy of your environment.**
 >
-> Recommended answer length: 100-200 words
->
-> Example:
-> *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
-> *complete copy of our development environment, one would have to run the following commands*
->
-> Answer:
 
---- question 4 fill here ---
+To manage dependancies we used the `uv` package manager because it allows for simple package installation and ensures
+consistent environments across different machines. After downloading and installing `uv`, running `uv venv` will create
+your virtual environment then running `uv init` will create the `pyproject.toml` and `uv.lock` in the project.
+To add packages we can run `uv add` for example: `uv add requests`. This command adds the package to `pyproject.toml`,
+updates the `uv.lock` file, and syncs the environment. If needed packages
+can be removed with `uv remove requests`.
+
+For a new team member:
+
+```
+    1. Clone the project repository.
+    2. Install uv if not already installed.
+    3. Run the `uv sync` in the project directory
+```
 
 ### Question 5
 
@@ -182,6 +190,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 5 fill here ---
 
+
+
 ### Question 6
 
 > **Did you implement any rules for code quality and format? What about typing and documentation? Additionally,**
@@ -196,6 +206,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 6 fill here ---
+
+ruff, mypy
 
 ## Version control
 
@@ -216,6 +228,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 7 fill here ---
 
+Not done yet
+
 ### Question 8
 
 > **What is the total code coverage (in percentage) of your code? If your code had a code coverage of 100% (or close**
@@ -230,6 +244,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 8 fill here ---
+
+Data: 23, eval: 100, model: 72,
 
 ### Question 9
 
@@ -246,6 +262,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 9 fill here ---
 
+Yes --
+
 ### Question 10
 
 > **Did you use DVC for managing data in your project? If yes, then how did it improve your project to have version**
@@ -253,13 +271,12 @@ s193992, s215225, s215158, s215133, s242507
 >
 > Recommended answer length: 100-200 words.
 >
-> Example:
-> *We did make use of DVC in the following way: ... . In the end it helped us in ... for controlling ... part of our*
-> *pipeline*
->
-> Answer:
 
---- question 10 fill here ---
+We used DVC and GCS to manage our data, leveraging the version control capabilities for two main benefits: reproducibility and scalability.
+Given that our team was working across three different systems, being able to access and store data on a centralized server proved highly beneficial.
+Additionally, DVC ensured that the same version of the data was used across all environments, which helped maintain consistency throughout the project.
+Our dataset did not have many modifications, but if we were to have changed datasets to a larger or smaller size, different words, etc. DVC would have
+been an incredible asset as well.
 
 ### Question 11
 
@@ -277,6 +294,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 11 fill here ---
+
+Yes all: different OS, different pytohn version
 
 ## Running code and tracking experiments
 
@@ -297,6 +316,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 12 fill here ---
 
+Hydra config files -- can't train yet
+
 ### Question 13
 
 > **Reproducibility of experiments are important. Related to the last question, how did you secure that no information**
@@ -311,6 +332,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 13 fill here ---
+
+Config files pushed to the repo ie. trakced by git
 
 ### Question 14
 
@@ -344,6 +367,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 15 fill here ---
 
+We would docker to run train, eval, and api.
+
 ### Question 16
 
 > **When running into bugs while trying to run your experiments, how did you perform debugging? Additionally, did you**
@@ -358,6 +383,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 16 fill here ---
+
+Most of the code was boilerplate or inspired by the class modules, when running into debug issues, copilot/LLMs/TAs were helpful.
 
 ## Working in the cloud
 
@@ -376,6 +403,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 17 fill here ---
 
+- Buckets, Engines, Artifact Registry
+
 ### Question 18
 
 > **The backbone of GCP is the Compute engine. Explained how you made use of this service and what type of VMs**
@@ -390,6 +419,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 18 fill here ---
+
+Suggested VM from course
 
 ### Question 19
 
@@ -433,6 +464,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 22 fill here ---
 
+No, not yet
+
 ## Deployment
 
 ### Question 23
@@ -450,6 +483,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 23 fill here ---
 
+Yes -- explain later
+
 ### Question 24
 
 > **Did you manage to deploy your API, either in locally or cloud? If not, describe why. If yes, describe how and**
@@ -466,6 +501,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 24 fill here ---
 
+Currently locally -- hpoefulyl cloud.
+
 ### Question 25
 
 > **Did you perform any unit testing and load testing of your API? If yes, explain how you did it and what results for**
@@ -481,6 +518,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 25 fill here ---
 
+We will.
+
 ### Question 26
 
 > **Did you manage to implement monitoring of your deployed model? If yes, explain how it works. If not, explain how**
@@ -495,6 +534,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 26 fill here ---
+
+No.
 
 ## Overall discussion of project
 
@@ -515,6 +556,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 27 fill here ---
 
+None.
+
 ### Question 28
 
 > **Did you implement anything extra in your project that is not covered by other questions? Maybe you implemented**
@@ -530,6 +573,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 28 fill here ---
+
+Frontend.
 
 ### Question 29
 
@@ -548,6 +593,8 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 29 fill here ---
 
+Later.
+
 ### Question 30
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
@@ -561,6 +608,8 @@ s193992, s215225, s215158, s215133, s242507
 > Answer:
 
 --- question 30 fill here ---
+
+not having GPU access.
 
 ### Question 31
 
