@@ -146,7 +146,7 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 3 fill here ---
 
-transformers
+In our project, we used the `transformers` third-party package from Hugging Face. We chose it because of its ease of use and wide support for pre-trained models. Specifically, we leveraged the `t5-small model` for our task of translating Danish to English. The `transformers` package provided a straightforward interface to load and fine-tune the model, making it easy to implement in our project. We used its functionality to tokenize the input text and generate accurate translations. This framework significantly expedited our work and ensured high-quality results, allowing us to focus more on the application logic rather than low-level implementation details.
 
 ## Coding environment
 
@@ -190,7 +190,9 @@ For a new team member:
 
 --- question 5 fill here ---
 
+We filled out the majority of pre-cut folders and files from the `MLOPs_template` cookiecutter. The additions that we have are the following: `.ruff_cache`, `.dvc`, `.github`, `logs`,  and `reports`. The reasons for these deviations are mainly package dependant, for example: `ruff` and `dvc`. The reports folder is course specific to include figures and a `README.md` to answer the quetions asked.
 
+Therefore, the overall structure of our project aligns very closers to the template.
 
 ### Question 6
 
@@ -207,7 +209,7 @@ For a new team member:
 
 --- question 6 fill here ---
 
-ruff, mypy
+Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and included type annotations throughout the code. Additionally, we followed a clear documentation style using docstrings for all functions and classes. These concepts are important in larger projects because they help maintain consistency, readability, and reduce the likelihood of errors. Linting ensures code adheres to style guidelines, making it easier for multiple developers to collaborate. Type annotations and checking with `mypy` catch potential type errors early, leading to more robust and maintainable code. Documentation provides clarity for others (or yourself) when revisiting the code, improving knowledge transfer and reducing the learning curve. In large projects with many contributors, these practices ensure that the codebase remains clean, understandable, and scalable.
 
 ## Version control
 
@@ -245,7 +247,7 @@ Not done yet
 
 --- question 8 fill here ---
 
-Data: 23, eval: 100, model: 72,
+Data: 80, model: 72, API/EVAL nothing yet
 
 ### Question 9
 
@@ -262,7 +264,11 @@ Data: 23, eval: 100, model: 72,
 
 --- question 9 fill here ---
 
-Yes --
+Yes, we used feature branches and pull requests (PRs) as part of our version control process. Each team member worked on their own branch, isolated from the `main` branch, to implement features or fix bugs. When the work was ready, a pull request was created to propose merging the changes back into main.
+
+To ensure stability and code quality, each PR included automated tests that ran as part of the CI/CD pipeline. This ensured that before code was merged, it passed all unit tests, integration tests, and any other relevant checks. This step was crucial in maintaining code reliability, as it caught regressions or potential issues early in the review process. Any failing tests would block the merge, forcing us to address issues before integration.
+
+The use of PRs with automated tests provides a safety net in larger projects, where manual testing alone is not sufficient. It allows for continuous validation of code and ensures that only thoroughly tested, high-quality code is added to the main branch. This improves collaboration, reduces integration problems, and maintains the overall stability of the project.
 
 ### Question 10
 
@@ -295,8 +301,19 @@ been an incredible asset as well.
 
 --- question 11 fill here ---
 
-Yes all: different OS, different pytohn version
+We have organized our continuous integration (CI) setup into several distinct workflows using GitHub Actions. Our CI pipeline includes the following key stages:
 
+- Unit Testing: We use pytest for unit testing and ensure that all tests pass on each PR. This helps us catch regressions and bugs early in the development process.
+
+- Linting and Code Quality Checks: We run ruff for linting to enforce code style consistency and mypy for type checking to catch potential type errors. This ensures that our code adheres to best practices and reduces technical debt.
+
+- Cross-Environment Testing: We test our code across multiple Python versions to ensure compatibility and avoid issues related to different Python environments. Additionally, we test our code on multiple operating systems, including Ubuntu and macOS, to ensure it runs consistently across platforms.
+
+- Caching: To speed up the CI process, we make use of caching for dependencies. By caching our Python dependencies and other build artifacts (e.g., test results), we reduce redundant installations and speed up the overall build time.
+
+An example of the triggered CI workflow can be seen in our GitHub Actions configuration here: https://github.com/Jacopo00811/group26-mlops-project/actions/runs/12906222864
+
+This CI setup allows us to quickly validate changes across different environments, catch issues early, and maintain high code quality. It is particularly valuable in a collaborative setting where multiple developers are working on the same codebase, ensuring that all changes are well-tested, linted, and verified before they are merged.
 ## Running code and tracking experiments
 
 > In the following section we are interested in learning more about the experimental setup for running your code and
@@ -352,6 +369,11 @@ Config files pushed to the repo ie. trakced by git
 
 --- question 14 fill here ---
 
+![Profiler Example 1](figures/profile1.jpeg)![](figures/profile1.jpeg)
+![Profiler Example 2](figures/profile2.jpeg)![](figures/profile2.jpeg)
+![WandB Example 1](figures/wandb1.jpeg)![](figures/wandb1.jpeg)
+
+
 ### Question 15
 
 > **Docker is an important tool for creating containerized applications. Explain how you used docker in your**
@@ -384,7 +406,11 @@ We would docker to run train, eval, and api.
 
 --- question 16 fill here ---
 
-Most of the code was boilerplate or inspired by the class modules, when running into debug issues, copilot/LLMs/TAs were helpful.
+Most of our code was either boilerplate or inspired by the class modules, so debugging typically involved resolving issues related to integration or small customizations. When we ran into bugs, the approach varied by team member. Some relied heavily on using `print()` statements to trace variable values and identify where the logic was breaking. Others made use of advanced debugging tools like the `logger`.
+
+Additionally, we made use of tools like `GitHub Copilot` and large language models (LLMs) to help us identify potential issues and suggest fixes. We also consulted with teaching assistants (TAs) for guidance when we hit roadblocks.
+
+As for profiling, we did perform a single profiling run of the main code using `PyTorch profiling` to identify any performance bottlenecks. However, our project was relatively lightweight, and no major performance issues were identified. We felt the code was efficient enough for the scope of the project and didn't pursue further optimization unless a clear need arose.
 
 ## Working in the cloud
 
@@ -403,7 +429,13 @@ Most of the code was boilerplate or inspired by the class modules, when running 
 
 --- question 17 fill here ---
 
-- Buckets, Engines, Artifact Registry
+We used `Cloud Storage Buckets` to store and manage various datasets, models, and output files generated during our experiments. This service provided a reliable and scalable solution for storing large files, ensuring easy access across different team members and project stages.
+
+For compute-intensive tasks such as model training and batch processing, we utilized `Google Compute Engine`. This service allowed us to provision virtual machines (VMs) with the necessary specifications, enabling scalable and on-demand computing power. It was particularly useful for training our model.
+
+Finally, we leveraged Artifact Registry to store and manage Docker images. This service helped us securely store our containerized environments, ensuring consistency and reproducibility across different machines and stages of the project. By managing artifacts in one centralized place, we streamlined deployment and version control processes.
+
+Together, these GCP services provided a robust infrastructure for storage, computation, and environment management, which was critical to the success and scalability of our project.
 
 ### Question 18
 
