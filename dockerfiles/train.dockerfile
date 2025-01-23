@@ -23,9 +23,9 @@ RUN pip install --no-cache-dir -r requirements_dev.txt
 RUN pip install --no-cache-dir -e .
 
 RUN dvc init --no-scm
-COPY .dvc/config .dvc/config
-COPY *.dvc ./
-RUN dvc config core.no_scm true
-RUN dvc pull
+# COPY .dvc/config .dvc/config
+# COPY *.dvc ./
+# RUN dvc config core.no_scm true
+# RUN dvc pull
 
 ENTRYPOINT ["python", "-u", "src/danish_to_english_llm/train.py"]
