@@ -554,9 +554,7 @@ We will.
 >
 > Answer:
 
---- question 26 fill here ---
-
-No.
+We did not manage to implement monitoring for our model. However, implementing monitoring would improve the longevity of our application because with monitoring we can track the performance of the model in real-time, so we can make sure that it continues to function as expected. With monitoring, we can track the stuff such as the errors, ressources or the response time, so we can see when there is an issue with the model. It is also possible to set up alerts with monitoring, so you will be allerted if unusual patterns or bad performance arises. Thereby, we can proactively maintain the model's accuracy and reliability for a longer period of time. To conclude, monitoring can be used to get insights into the model's behavior in production, so we can maintain the application for a longer period of time.
 
 ## Overall discussion of project
 
