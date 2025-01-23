@@ -374,9 +374,7 @@ During the experiments, we log important events and metrics using the `loguru` l
 >
 > Answer:
 
---- question 15 fill here ---
-
-We would docker to run train, eval, and api.
+Docker is used to run the training file, leveraging an NVIDIA container image for PyTorch as the base. On top of this, the src folder, requirements.txt files, models folder, and config folder are added. The environment is then configured by installing the required packages listed in the requirements.txt files. Additionally, the Docker container is mounted to the data folder and requires an API key to be provided as part of its environment variables at runtime. Furthermore, for every pull request that passes the tests, the Docker image is automatically built on Google Cloud. This setup ensures consistency across different environments and simplifies the deployment process. By using Docker, we can easily share and reproduce our development environment. Thereby making collaboration even more efficient.
 
 ### Question 16
 
