@@ -2,6 +2,10 @@
 
 Translate short sentences from Danish to English using LLM
 
+# Documentation
+
+For this project, MkDocs was used to document the code aspect in this project. It was published to GitHub Pages, and here is the the link: https://jacopo00811.github.io/group26-mlops-project/ 
+
 # Project description
 **Overall goal of the project**
 
