@@ -222,9 +222,7 @@ Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and in
 >
 > Answer:
 
---- question 7 fill here ---
-
-We have implemented
+We have implemented seventeen tests in total to ensure the robustness and reliability of our project. We have mainly tested our data code and our model since these are essential parts of our project. And without a well-functioning model and data repository, we would not have a reliable and robout project.
 
 ### Question 8
 
