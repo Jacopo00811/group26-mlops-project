@@ -504,9 +504,7 @@ No, not yet
 >
 > Answer:
 
---- question 23 fill here ---
-
-Yes -- explain later
+We did manage to write an API for our model using FastAPI. The API provides an endpoint to translate Danish text to English. We defined a Pydantic model for request and response validation to ensure the input and output data are correctly formatted. The API logs different parts of the code using a logger. We also created a frontend for the API using Streamlit. The frontend allows users to input Danish text and get the translated English text by interacting with the API. Additionally, we containerized the API using Docker, which simplifies deployment and ensures consistency across different environments. This approach allows us to deploy the API to the GCP.
 
 ### Question 24
 
