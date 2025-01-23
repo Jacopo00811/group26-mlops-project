@@ -412,8 +412,6 @@ As for profiling, we did perform a single profiling run of the main code using `
 >
 > Answer:
 
---- question 17 fill here ---
-
 We used `Cloud Storage Buckets` to store and manage various datasets, models, and output files generated during our experiments. This service provided a reliable and scalable solution for storing large files, ensuring easy access across different team members and project stages.
 
 For compute-intensive tasks such as model training and batch processing, we utilized `Google Compute Engine`. This service allowed us to provision virtual machines (VMs) with the necessary specifications, enabling scalable and on-demand computing power. It was particularly useful for training our model.
@@ -446,7 +444,10 @@ Suggested VM from course
 >
 > Answer:
 
---- question 19 fill here ---
+You can see our GCP bucket from [this figure](figures/bucket1.png) or [this figure](figures/bucket2.png)
+
+![GCP Bucket 1](figures/bucket1.png)
+![GCP Bucket 2](figures/bucket2.png)
 
 ### Question 20
 
