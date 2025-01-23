@@ -318,9 +318,9 @@ This CI setup allows us to quickly validate changes across different environment
 >
 > Answer:
 
---- question 12 fill here ---
+We configured our experiments using Hydra and YAML configuration files. The main configuration file (`config.yaml`) specifies the default experiment configuration. Each experiment has its own YAML file (e.g., `exp1.yaml`, `exp2.yaml`) that defines specific parameters such as model name, batch size, learning rate, and callbacks. To run an experiment, we can use the following command:
 
-Hydra config files -- can't train yet
+python src/danish_to_english_llm/train.py experiment=exp2
 
 ### Question 13
 
