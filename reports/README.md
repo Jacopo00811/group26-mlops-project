@@ -144,8 +144,6 @@ s193992, s215225, s215158, s215133, s242507
 >
 > Answer:
 
---- question 3 fill here ---
-
 In our project, we used the `transformers` as the third-party package. It is from Hugging Face. We chose it because of its ease of use and wide support for pre-trained models. Specifically, we leveraged the `t5-small model` for our task of translating Danish to English. The `transformers` package provided a straightforward interface to load and fine-tune the model, making it easy to implement in our project. We used its functionality to tokenize the input text and generate accurate translations. This framework significantly expedited our work and ensured high-quality results, allowing us to focus more on the application logic rather than low-level implementation details.
 
 ## Coding environment
@@ -188,9 +186,7 @@ For a new team member:
 >
 > Answer:
 
---- question 5 fill here ---
-
-As mentioned in the question, we have used the initial cookiecutter template for our initial structure of our code. We have filled out the majority of the pre-cut folders and files from the `MLOPs_template` cookiecutter template. Other than the folders already included in the cookie cutter template, we have added the following folders to the actual GitHub repository: `.dvc` and `.devcontainer`. The reason being is that we need it for the data version control and for the docker container. Otherwise, when running the code, the following folders are added `.ruff_cache`, `.pytest_cache` `logs` and`.mypy_cache`. The reason for these folders are mainly because they are mainly package dependant, for example: `ruff` and `pytest`. The reports folder is course specific to include figures and a `README.md` to answer the quetions asked.
+As mentioned in the question, we have used the initial cookiecutter template for our initial structure of our code. We have filled out the majority of the pre-cut folders and files from the `MLOPs_template` cookiecutter template. Other than the folders already included in the cookie cutter template, we have added the following folders to the actual GitHub repository: `.dvc` and `.devcontainer`. The reason being is that we need it for the data version control and for the docker container. Otherwise, when running the code, the following folders are added `.ruff_cache`, `.pytest_cache` `logs` and`.mypy_cache`. The reason for these folders are mainly because they are mainly package dependant, for example: `ruff` and `pytest`. The reports folder is course specific to include figures and a `README.md` to answer the quetions asked. Lastly, we have removed the data folder from the GitHub repository since it has been moved to the dvc.
 
 Therefore, the overall structure of our project aligns very closers to the template.
 
@@ -206,8 +202,6 @@ Therefore, the overall structure of our project aligns very closers to the templ
 > *concepts are important in larger projects because ... . For example, typing ...*
 >
 > Answer:
-
---- question 6 fill here ---
 
 Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and included type annotations throughout the code. Additionally, we followed a clear documentation style using docstrings for all functions and classes. These concepts are important in larger projects because they help maintain consistency, readability, and reduce the likelihood of errors. Linting ensures code adheres to style guidelines, making it easier for multiple developers to collaborate. Type annotations and checking with `mypy` catch potential type errors early, leading to more robust and maintainable code. Documentation provides clarity for others (or yourself) when revisiting the code, improving knowledge transfer and reducing the learning curve. In large projects with many contributors, these practices ensure that the codebase remains clean, understandable, and scalable.
 
@@ -230,7 +224,7 @@ Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and in
 
 --- question 7 fill here ---
 
-Not done yet
+We have implemented
 
 ### Question 8
 
