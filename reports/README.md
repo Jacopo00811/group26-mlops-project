@@ -283,8 +283,6 @@ We used both DVC and GCS to manage our data, leveraging the version control capa
 >
 > Answer:
 
---- question 11 fill here ---
-
 We have organized our continuous integration (CI) setup into several distinct workflows using GitHub Actions. Our CI pipeline includes the following key stages:
 
 - Unit Testing: We use pytest for unit testing and ensure that all tests pass on each PR. This helps us catch regressions and bugs early in the development process.
