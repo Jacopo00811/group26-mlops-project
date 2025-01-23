@@ -252,8 +252,6 @@ The total code coverage of our code as of now is 31%. However, as we have only t
 >
 > Answer:
 
---- question 9 fill here ---
-
 Yes, we used feature branches and pull requests (PRs) as part of our version control process. Each team member worked on their own branch, isolated from the `main` branch, to implement features or fix bugs. When the work was ready, a pull request was created to propose merging the changes back into main.
 
 To ensure stability and code quality, each PR included automated tests that ran as part of the CI/CD pipeline. This ensured that before code was merged, it passed all unit tests, integration tests, and any other relevant checks. This step was crucial in maintaining code reliability, as it caught regressions or potential issues early in the review process. Any failing tests would block the merge, forcing us to address issues before integration.
