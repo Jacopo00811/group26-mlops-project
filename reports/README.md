@@ -295,9 +295,14 @@ We have organized our continuous integration (CI) setup into several distinct wo
 
 - Caching: To speed up the CI process, we make use of caching for dependencies. By caching our Python dependencies and other build artifacts (e.g., test results), we reduce redundant installations and speed up the overall build time.
 
+- Deploy Docs: We used MkDocs for documenting our code, so if a new function is added or existing documentation is updated, the changes are automatically deployed to GitHub Pages. This ensures that our documentation is always up-to-date and accessible.
+
 An example of the triggered CI workflow can be seen in our GitHub Actions configuration here: https://github.com/Jacopo00811/group26-mlops-project/actions/runs/12906222864
 
+An example of one of our GitHub actions workflow files: https://github.com/Jacopo00811/group26-mlops-project/blob/main/.github/workflows/tests.yaml
+
 This CI setup allows us to quickly validate changes across different environments, catch issues early, and maintain high code quality. It is particularly valuable in a collaborative setting where multiple developers are working on the same codebase, ensuring that all changes are well-tested, linted, and verified before they are merged.
+
 ## Running code and tracking experiments
 
 > In the following section we are interested in learning more about the experimental setup for running your code and
