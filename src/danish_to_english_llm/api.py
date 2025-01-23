@@ -1,131 +1,57 @@
-# import logging
-
-# from fastapi import FastAPI, HTTPException
-# from pydantic import BaseModel
-
-# logger = logging.getLogger(__name__)
-
-# app = FastAPI()
-
-
-# class TranslationRequest(BaseModel):
-#     danish_text: str
-
-
-# class TranslationResponse(BaseModel):
-#     english_text: str
-
-
-# @app.post("/translate/", response_model=TranslationResponse)
-# async def translate_text(request: TranslationRequest):
-#     """Echo the input text (for testing purposes only)."""
-#     try:
-#         # Simply return the same text that was input
-#         return TranslationResponse(english_text=request.danish_text)
-#     except Exception as e:
-#         logger.error(f"Error processing text: {e}")
-#         raise HTTPException(status_code=500, detail="Error processing text")
-
-
-
-
-# import logging
-
-# from fastapi import FastAPI, HTTPException
-# from pydantic import BaseModel
-
-# import onnxruntime
-
-# logger = logging.getLogger(__name__)
-
-# app = FastAPI()
-
-# # Load model
-# try:
-#     model = onnxruntime.InferenceSession("models/model.onnx")
-#     logger.info("Model loaded successfully")
-
-# except FileNotFoundError:
-#     logger.warning("Model not found.")
-# class TranslationRequest(BaseModel):
-#     danish_text: str
-
-
-# class TranslationResponse(BaseModel):
-#     english_text: str
-
-
-# @app.post("/translate/", response_model=TranslationResponse)
-# async def translate_text(request: TranslationRequest):
-#     """Translate Danish text to English."""
-#     try:
-#         danish_text = request.danish_text
-#         english_text = model.run(None, danish_text)
-#         english_text = english_text[0].tolist()
-#         return TranslationResponse(english_text=english_text)
-#     except Exception as e:
-#         logger.error(f"Error translating text: {e}")
-#         raise HTTPException(status_code=500, detail="Error translating text")
-
-
 import logging
-import numpy as np
-import onnxruntime
+from typing import Any, Dict
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from transformers import T5Tokenizer
+from transformers import MarianMTModel, MarianTokenizer
 
-logger = logging.getLogger(__name__)
+# Set up logging
+logging.basicConfig(level=logging.INFO)
 
+# FastAPI instance
 app = FastAPI()
 
-# Load model and tokenizer
-try:
-    session = onnxruntime.InferenceSession("models/model.onnx")
-    
-    tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-small")
-    
-    input_names = [input.name for input in session.get_inputs()]
-    output_name = session.get_outputs()[0].name
-    
-    logger.info("Model loaded successfully")
+# Load translation model and tokenizer for Danish-to-English
+model_name = "Helsinki-NLP/opus-mt-en-da"
+tokenizer = MarianTokenizer.from_pretrained(model_name)
+model = MarianMTModel.from_pretrained(model_name)
 
-except FileNotFoundError:
-    logger.warning("Model not found.")
 
-class TranslationRequest(BaseModel):
-    danish_text: str
+class TextRequest(BaseModel):
+    text: str
 
-class TranslationResponse(BaseModel):
-    english_text: str
 
-@app.post("/translate/", response_model=TranslationResponse)
-async def translate_text(request: TranslationRequest):
-    """Translate Danish text to English."""
+# API endpoint to process text
+@app.post("/process-text/")
+async def process_text(request: TextRequest) -> Dict[str, Any]:
     try:
-        danish_text = request.danish_text
-        
-        # Tokenize input
-        inputs = tokenizer(danish_text, return_tensors="np", padding=True, truncation=True)
-        
-        # Prepare all required inputs
-        input_feed = {
-            'input_ids': inputs['input_ids'],
-            'attention_mask': inputs['attention_mask'],
-            'decoder_input_ids': np.zeros_like(inputs['input_ids'], dtype=np.int64)
-        }
-        
-        # Run inference with all inputs
-        result = session.run([output_name], input_feed)
-        
-        # Handle potential 0-dimensional array
-        if result[0].ndim == 0:
-            english_text = tokenizer.decode(result[0], skip_special_tokens=True)
-        else:
-            english_text = tokenizer.decode(result[0][0], skip_special_tokens=True)
-        
-        return TranslationResponse(english_text=english_text)
-    
+        # Get input text from request
+        input_text = request.text
+        logging.info(f"Processing text: {input_text}")
+
+        # Format the input text for translation task
+        input_prompt = f"translate English to Danish: {input_text}"
+
+        # Tokenize the formatted input text
+        inputs = tokenizer(input_prompt, return_tensors="pt", padding=True, truncation=True)
+
+        # Generate the output (translation)
+        output = model.generate(inputs["input_ids"], max_length=50)
+
+        # Decode the output
+        processed_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+        logging.info(f"Processed text: {processed_text}")
+
+        # Return the processed text (translated output)
+        return {"text": processed_text}
+
     except Exception as e:
-        logger.error(f"Error translating text: {e}")
-        raise HTTPException(status_code=500, detail=f"Error translating text: {str(e)}")
+        logging.error(f"Error processing text: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)

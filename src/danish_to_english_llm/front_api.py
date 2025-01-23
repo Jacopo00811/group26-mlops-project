@@ -1,9 +1,8 @@
-# streamlit_app.py
 import requests
 import streamlit as st
 
-# FastAPI backend URL (adjust this if you're deploying locally or on a server)
-API_URL = "http://localhost:8000/translate/"
+# FastAPI backend URL
+API_URL = "http://localhost:8000/process-text/"
 
 # Streamlit page configuration
 st.set_page_config(page_title="Danish to English Translator", layout="wide")
@@ -19,26 +18,30 @@ st.markdown(
 )
 
 # Title of the app
-st.title("Danish to English Translation")
+st.title(
+    "This was supposed to be Danish to English but our model never got trained and the DA-EN Helenski transformers package didn't work"
+)
 
 # Instructions
-st.markdown("Enter some Danish text below, and click 'Translate' to get the English translation.")
+st.markdown("Enter some English text below, and click 'Process' to see the output.")
 
-# Input: Danish text
-danish_text = st.text_area("Danish Text", height=150)
+# Input: Text
+input_text = st.text_area("Input English", height=150)
 
-# Button to trigger translation
-if st.button("Translate"):
-    if danish_text:
-        # Send the request to the FastAPI backend for translation
-        response = requests.post(API_URL, json={"danish_text": danish_text})
+# Button to trigger processing
+if st.button("Process"):
+    if input_text:
+        # Send the request to the FastAPI backend
+        response = requests.post(API_URL, json={"text": input_text})
 
         if response.status_code == 200:
-            # Get the translation from the API response
-            english_text = response.json()["english_text"]
-            st.subheader("Translated Text")
-            st.write(english_text)
+            # Get the output from the API response
+            processed_text = response.json()["text"]
+            st.subheader("Processed Text")
+            st.write(processed_text)
         else:
             st.error(f"Error: {response.status_code} - {response.json().get('detail', 'Unknown error')}")
     else:
-        st.warning("Please enter some Danish text to translate.")
+        st.warning("Please enter some text to process.")
+
+
