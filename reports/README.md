@@ -318,7 +318,7 @@ This CI setup allows us to quickly validate changes across different environment
 >
 > Answer:
 
-We configured our experiments using Hydra and YAML configuration files. The main configuration file (`config.yaml`) specifies the default experiment configuration. Each experiment has its own YAML file (e.g., `exp1.yaml`, `exp2.yaml`) that defines specific parameters such as model name, batch size, learning rate, and callbacks. To run an experiment, we can use the following command:
+We configured our experiments using Hydra and YAML configuration files. The main configuration file (`config.yaml`) specifies the default experiment configuration. Each experiment has its own YAML file (e.g., `exp1.yaml`, `exp2.yaml`) that defines specific parameters such as model name, batch size and learning rate. To run an experiment, we can use the following command:
 
 python src/danish_to_english_llm/train.py experiment=exp2
 
@@ -335,9 +335,9 @@ python src/danish_to_english_llm/train.py experiment=exp2
 >
 > Answer:
 
---- question 13 fill here ---
+To have reproducibility of our experiments, we used Hydra and YAML files to define all experiment parameters. These configuration files are stored in the `configs` directory and are version-controlled using Git. This ensures that all changes to the configuration files are tracked and can be reverted if necessary.
 
-Config files pushed to the repo ie. trakced by git
+During the experiments, we log important events and metrics using the `loguru` library. The logs are stored in the `logs` directory, providing a detailed record of each experiment. We also use Weights & Biases (wandb) to track the experiments. This ensures that everything is stored and can be accessed later. By combining all of this, we can be sure that no information is lost and that our experiments are fully reproducible.
 
 ### Question 14
 
