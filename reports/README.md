@@ -146,7 +146,7 @@ s193992, s215225, s215158, s215133, s242507
 
 --- question 3 fill here ---
 
-In our project, we used the `transformers` third-party package from Hugging Face. We chose it because of its ease of use and wide support for pre-trained models. Specifically, we leveraged the `t5-small model` for our task of translating Danish to English. The `transformers` package provided a straightforward interface to load and fine-tune the model, making it easy to implement in our project. We used its functionality to tokenize the input text and generate accurate translations. This framework significantly expedited our work and ensured high-quality results, allowing us to focus more on the application logic rather than low-level implementation details.
+In our project, we used the `transformers` as the third-party package. It is from Hugging Face. We chose it because of its ease of use and wide support for pre-trained models. Specifically, we leveraged the `t5-small model` for our task of translating Danish to English. The `transformers` package provided a straightforward interface to load and fine-tune the model, making it easy to implement in our project. We used its functionality to tokenize the input text and generate accurate translations. This framework significantly expedited our work and ensured high-quality results, allowing us to focus more on the application logic rather than low-level implementation details.
 
 ## Coding environment
 
