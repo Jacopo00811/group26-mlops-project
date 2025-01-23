@@ -237,9 +237,7 @@ We have implemented seventeen tests in total to ensure the robustness and reliab
 >
 > Answer:
 
---- question 8 fill here ---
-
-Data: 80, model: 72, API/EVAL nothing yet
+The total code coverage of our code as of now is 31%. However, as we have only tested the data repository and our model, our total test coverage will be low. But for the tested parts, we have 80% test coverage for our data repository, and we have 72% test coverage for our model. Even if our code had a test coverage of 100%, we would not trust it to be error free. The reason being is that test coverage is not a meassure of correctness but its an indication of how much of the code has been ran during the testing. So there might be cases where the code is not behaving as expected, because it has not been covered in the tests even though the test coverage is 100%.
 
 ### Question 9
 
