@@ -446,8 +446,8 @@ Suggested VM from course
 
 You can see our GCP bucket from the following figures:
 
-![GCP Bucket 1](figures/bucket1.png)
-![GCP Bucket 2](figures/bucket2.png)
+![GCP Bucket](figures/bucket1.png)
+![GCP Bucket](figures/bucket2.png)
 
 ### Question 20
 
@@ -456,7 +456,10 @@ You can see our GCP bucket from the following figures:
 >
 > Answer:
 
---- question 20 fill here ---
+You can see our GCP artifact registry from the below figures:
+
+![GCP Artifact Registry](figures/artifact_registry1.png)
+![GCP Artifact Registry](figures/artifact_registry2.png)
 
 ### Question 21
 
