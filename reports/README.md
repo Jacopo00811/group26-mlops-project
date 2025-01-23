@@ -444,7 +444,7 @@ Suggested VM from course
 >
 > Answer:
 
-You can see our GCP bucket from [this figure](figures/bucket1.png) or [this figure](figures/bucket2.png)
+You can see our GCP bucket from the following figures:
 
 ![GCP Bucket 1](figures/bucket1.png)
 ![GCP Bucket 2](figures/bucket2.png)
