@@ -266,11 +266,7 @@ The use of PRs with automated tests provides a safety net in larger projects, wh
 > Recommended answer length: 100-200 words.
 >
 
-We used DVC and GCS to manage our data, leveraging the version control capabilities for two main benefits: reproducibility and scalability.
-Given that our team was working across three different systems, being able to access and store data on a centralized server proved highly beneficial.
-Additionally, DVC ensured that the same version of the data was used across all environments, which helped maintain consistency throughout the project.
-Our dataset did not have many modifications, but if we were to have changed datasets to a larger or smaller size, different words, etc. DVC would have
-been an incredible asset as well.
+We used both DVC and GCS to manage our data, leveraging the version control capabilities for two main benefits: reproducibility and scalability. Given that our team was working across three different operating systems, being able to access and store data on a centralized server proved highly beneficial. Additionally, DVC ensured that the same version of the data was used across all environments, which helped maintain consistency throughout the project. Our dataset did not have many modifications, but if we were to have changed datasets to a larger or smaller size, different words, etc. DVC would have been an incredible asset as well.
 
 ### Question 11
 
