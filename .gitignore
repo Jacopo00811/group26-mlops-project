@@ -186,3 +186,6 @@ cacert.pem
 
 logs/
 /logs
+
+*.pth
+*.onnx
