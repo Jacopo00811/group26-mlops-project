@@ -468,7 +468,9 @@ You can see our GCP artifact registry from the below figures:
 >
 > Answer:
 
---- question 21 fill here ---
+Below is our GCP cloud build history:
+
+![GCP Cloud Build History](figures/build_history.png)
 
 ### Question 22
 
