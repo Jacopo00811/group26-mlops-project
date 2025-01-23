@@ -391,9 +391,7 @@ We would docker to run train, eval, and api.
 >
 > Answer:
 
---- question 16 fill here ---
-
-Most of our code was either boilerplate or inspired by the class modules, so debugging typically involved resolving issues related to integration or small customizations. When we ran into bugs, the approach varied by team member. Some relied heavily on using `print()` statements to trace variable values and identify where the logic was breaking. Others made use of advanced debugging tools like the `logger`.
+Most of our code was either comming from PyTorch Lightning or inspired by the class modules, so debugging typically involved resolving issues related to integration or small customizations. When we ran into bugs, the approach varied by team member. Some relied heavily on using `print()` statements to trace variable values and identify where the logic was breaking. Others made use of advanced debugging tools like the `logger`.
 
 Additionally, we made use of tools like `GitHub Copilot` and large language models (LLMs) to help us identify potential issues and suggest fixes. We also consulted with teaching assistants (TAs) for guidance when we hit roadblocks.
 
