@@ -88,7 +88,7 @@ will check the repositories and the code to verify your answers.
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
-* [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
+* [x] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
 * [x] Create a frontend for your API (M26)
 
 ### Week 3
@@ -190,7 +190,7 @@ For a new team member:
 
 --- question 5 fill here ---
 
-We filled out the majority of pre-cut folders and files from the `MLOPs_template` cookiecutter. The additions that we have are the following: `.ruff_cache`, `.dvc`, `.github`, `logs`,  and `reports`. The reasons for these deviations are mainly package dependant, for example: `ruff` and `dvc`. The reports folder is course specific to include figures and a `README.md` to answer the quetions asked.
+As mentioned in the question, we have used the initial cookiecutter template for our initial structure of our code. We have filled out the majority of the pre-cut folders and files from the `MLOPs_template` cookiecutter template. Other than the folders already included in the cookie cutter template, we have added the following folders to the actual GitHub repository: `.dvc` and `.devcontainer`. The reason being is that we need it for the data version control and for the docker container. Otherwise, when running the code, the following folders are added `.ruff_cache`, `.pytest_cache` `logs` and`.mypy_cache`. The reason for these folders are mainly because they are mainly package dependant, for example: `ruff` and `pytest`. The reports folder is course specific to include figures and a `README.md` to answer the quetions asked.
 
 Therefore, the overall structure of our project aligns very closers to the template.
 
