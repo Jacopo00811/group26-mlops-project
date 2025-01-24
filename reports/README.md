@@ -517,9 +517,7 @@ We did manage to write an API for our model using FastAPI. The API provides an e
 >
 > Answer:
 
---- question 24 fill here ---
-
-The API, with its front and back end, has been deploy on google cloud using the RUN service. The backend consist in a post request where the user can send the string, in Danish, for it to be translated into English. The API can be reached form CURL commands or the front end itself, where a nice text box and some instructions are provided to the user.
+The API, with its front and back end, has been deploy on google cloud using the RUN service. The backend of the API consist in a post request where the user can send the string, in Danish, for it to be translated into English. The API can be reached from CURL commands or the front end of the API itself, where a nice text box and some instructions are provided to the user. To deploy the API, we containerized the application using Docker and pushed the image to Google Artifact Registry. From there, we used Google Cloud Run to deploy the containerized application.
 
 ### Question 25
 
@@ -534,13 +532,12 @@ The API, with its front and back end, has been deploy on google cloud using the 
 >
 > Answer:
 
---- question 25 fill here ---
-Unit test for the API have been performed and have been added to the GitHub continuous integration flow. These test need a model to be able to run. The model is firstly pulled using dvc then used to create the API. Afterwards we used locust to do some simple load testing as it can be seen in the following pictures:
+Unit tests for the API have been performed and have been added to the GitHub continuous integration flow. These test need a model to be able to run. The model is firstly pulled using dvc then used to create the API. We used pytest for unit testing to ensure that each endpoint of the API works as expected. Afterwards we used locust to do some simple load testing as it can be seen in the following pictures:
 ![Load Testing](figures/Load_testing_with_locus.png)
 ![Load Testing](figures/Load_testing_with_locus2.png)
 Locust run with the following parameters:
 ``` locust -f tests/performancetests/locust.py --headless --users 10 --spawn-rate 1 --run-time 1m --host https://api-695110242648.europe-west1.run.app ```
-Did not create any issues to the Google Cloud Run services as can be seen in the pictures above.
+It did not create any issues to the Google Cloud Run services as can be seen in the pictures above.
 
 ### Question 26
 
