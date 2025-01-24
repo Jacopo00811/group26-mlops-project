@@ -606,8 +606,6 @@ Addidtionally implemented MkDocs to write documentation for our code. Additional
 >
 > Answer:
 
---- question 29 fill here ---
-
 ![Architecture](figures/architecture.png)
 
 The figure illustrates the machine learning operations pipeline for developing, testing, and deploying our model for translating danish to english sentences. The process begins with development or training on a local machine, where different experiments are being ran. Tools such as Weights & Biases (W&B) are utilized for tracking experiment results, while Hydra is used to manage configurations efficiently. Once the experiments are validated locally, we can commit changes to the GitHub repository using a pre-commit hook to ensure that the commits follow our defined coding standards.
