@@ -620,7 +620,15 @@ Later.
 
 --- question 30 fill here ---
 
-not having GPU access.
+The biggest challenges our team encountered during the project were centered around infrastructure limitations and technical setup, particularly with Google Cloud Services (GCS) and Docker usage.
+
+One of the key hurdles we faced was the lack of GPU access in GCS (Compute/Vertex AI), which significantly slowed down model training. However, we were able to adjust our approach by using pretrained models for the Danish-to-English translation task. While we wouldn't have been able to fully evaluate the model's accuracy or fine-tune it during inference due to the lack of GPU, using pretrained models allowed us to verify that the MLOps pipeline itself was functioning correctly. This was a crucial step in ensuring that the system was running as expected, even though it didn't allow for full model training.
+
+In addition to this, we faced several technical challenges with Docker. One of the more time-consuming issues was getting the data properly loaded into the Docker container. We ran into several roadblocks related to mounting volumes, file paths, and permissions between the host and the container. These issues slowed down progress initially, but our team collaborated closely to document and standardize the process, which ultimately solved the problem.
+
+Another obstacle was ensuring the right dependencies were installed in the base Docker image. We ran into compatibility issues across different libraries, which required us to iterate on the Dockerfile multiple times. As the Docker images grew larger, the build times became longer, and local storage quickly filled up, sometimes reaching up to 250 GB. To address this, we optimized the Dockerfile by removing unnecessary dependencies and cleaning up unused layers, which helped reduce storage usage and build time.
+
+Despite these technical challenges, we were able to successfully train the models, implement inference, and integrate the front-end and back-end systems. Thanks to the team’s collaboration and adaptability, we were able to navigate the setbacks and keep the project moving forward.
 
 ### Question 31
 
@@ -638,4 +646,15 @@ not having GPU access.
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
 
---- question 31 fill here ---
+
+Student s193992 was primarily responsible for ensuring project coverage, assisting with overall debugging, and contributing to the report writing and documentation. They helped ensure that all sections of the project were covered and worked on verifying the functionality of various components.
+
+Student s215225 took the lead on Docker deployment and GCS (Google Cloud Services) setup. They were in charge of configuring and managing the cloud infrastructure, setting up Docker containers for both training and inference, and ensuring smooth integration between the cloud and local systems.
+
+Student s215158 focused mainly on the model development and training phases. They worked on designing and fine-tuning the machine learning models, which included preparing the dataset, training the models in GCS, and later integrating them into an API for inference.
+
+Student s215133 contributed significantly to coverage, writing portions of the project report, and documentation. They ensured that all processes were properly documented and that the final report was cohesive and complete, detailing all aspects of the project.
+
+Student s242507 worked on DVC (Data Version Control), GCS setup, API development, and contributed to report writing. They were involved in managing data pipelines and ensuring the models were integrated into a deployable API. Additionally, they helped with the final report writing and documentation.
+
+All members contributed to the coding efforts and troubleshooting tasks. We utilized ChatGPT for debugging and refining certain sections of our code, particularly when resolving complex logic errors. Additionally, GitHub Copilot was used to help write boilerplate code, speeding up the development process and ensuring consistency across the codebase.
