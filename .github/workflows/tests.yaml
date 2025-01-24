@@ -83,11 +83,15 @@ jobs:
         run: |
           coverage run --source=danish_to_english_llm -m pytest tests/unit_tests/
           coverage report -m
+      - name: Run API tests
+        run: |
+          coverage run --source=danish_to_english_llm -m pytest tests/api_tests/
+          coverage report -m
 
 
   build:
     needs: test
-    if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' }}
+    if: ${{ github.event_name == 'merge' && github.base_ref == 'main' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

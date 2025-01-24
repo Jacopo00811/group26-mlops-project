@@ -1,8 +1,22 @@
+import os
+
 import requests
 import streamlit as st
+from google.cloud import run_v2
 
-# FastAPI backend URL
-API_URL = "http://localhost:8000/process-text/"
+
+@st.cache_resource
+def get_backend_url():
+    """Get the URL of the backend service."""
+    parent = "projects/adroit-chemist-447918-n1/locations/europe-west1"
+    client = run_v2.ServicesClient()
+    services = client.list_services(parent=parent)
+    for service in services:
+        if service.name.split("/")[-1] == "api":
+            return service.uri
+    name = os.environ.get("BACKEND", None)
+    return name
+
 
 # Streamlit page configuration
 st.set_page_config(page_title="Danish to English Translator", layout="wide")
@@ -16,23 +30,23 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+# FastAPI backend URL
+API_URL = get_backend_url()
 
 # Title of the app
-st.title(
-    "This was supposed to be Danish to English but our model never got trained and the DA-EN Helenski transformers package didn't work"
-)
+st.title("Danish to English Translator using LLMs")
 
 # Instructions
-st.markdown("Enter some English text below, and click 'Process' to see the output.")
+st.markdown("Enter some Danish text below, and click 'Process' to see the output.")
 
 # Input: Text
-input_text = st.text_area("Input English", height=150)
+input_text = st.text_area("Input Danish", height=150)
 
 # Button to trigger processing
 if st.button("Process"):
     if input_text:
         # Send the request to the FastAPI backend
-        response = requests.post(API_URL, json={"text": input_text})
+        response = requests.post(API_URL + "/process-text/", json={"text": input_text})
 
         if response.status_code == 200:
             # Get the output from the API response
