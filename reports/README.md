@@ -481,9 +481,7 @@ Below is our GCP cloud build history:
 >
 > Answer:
 
---- question 22 fill here ---
-
-No, not yet
+No, we unfortunately did not manage to train our model in the cloud using either the Engine or the Vertex AI. The reason for this, as mentioned in question 18, was because we had dependency issues with the PyTorch base image and certain specific versions of libraries required by our project. For example, some dependencies in our requirements.txt file were incompatible with the pre-installed packages in the PyTorch container. This resulted in version mismatches and runtime errors. These dependency conflicts prevented us from successfully setting up the environment in the cloud such that we could run our training tasks in the cloud.
 
 ## Deployment
 
