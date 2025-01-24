@@ -626,8 +626,6 @@ The validated code is built into a Docker image, which is then pushed to a conta
 >
 > Answer:
 
---- question 30 fill here ---
-
 The biggest challenges our team encountered during the project were centered around infrastructure limitations and technical setup, particularly with Google Cloud Services (GCS) and Docker usage.
 
 One of the key hurdles we faced was the lack of GPU access in GCS (Compute/Vertex AI), which significantly slowed down model training. However, we were able to adjust our approach by using pretrained models for the Danish-to-English translation task. While we wouldn't have been able to fully evaluate the model's accuracy or fine-tune it during inference due to the lack of GPU, using pretrained models allowed us to verify that the MLOps pipeline itself was functioning correctly. This was a crucial step in ensuring that the system was running as expected, even though it didn't allow for full model training.
@@ -653,7 +651,6 @@ Despite these technical challenges, we were able to successfully train the model
 > *All members contributed to code by...*
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
-
 
 Student s193992 was primarily responsible for ensuring project coverage, assisting with overall debugging, and contributing to the report writing and documentation. They helped ensure that all sections of the project were covered and worked on verifying the functionality of various components.
 
