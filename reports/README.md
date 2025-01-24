@@ -534,7 +534,9 @@ Currently locally -- hpoefulyl cloud.
 
 --- question 25 fill here ---
 
-We will.
+We also did load testing which can be seen in the below pictures:
+![Load Testing](figures/Load_testing_with_locus.png)
+![Load Testing](figures/Load_testing_with_locus2.png)
 
 ### Question 26
 
