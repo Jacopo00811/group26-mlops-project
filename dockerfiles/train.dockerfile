@@ -16,16 +16,10 @@ COPY requirements.txt requirements.txt
 COPY requirements_dev.txt requirements_dev.txt
 COPY pyproject.toml pyproject.toml
 
-# RUN uv sync --frozen
 ENV PATH="/app/.venv/bin:$PATH"
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir -r requirements_dev.txt
 RUN pip install --no-cache-dir -e .
 
-RUN dvc init --no-scm
-# COPY .dvc/config .dvc/config
-# COPY *.dvc ./
-# RUN dvc config core.no_scm true
-# RUN dvc pull
 
 ENTRYPOINT ["python", "-u", "src/danish_to_english_llm/train.py"]

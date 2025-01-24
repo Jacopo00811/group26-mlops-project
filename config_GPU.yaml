@@ -2,8 +2,11 @@
 workerPoolSpecs:
     machineSpec:
         machineType: n1-standard-8
-        acceleratorType: NVIDIA_TESLA_P100
+        acceleratorType: NVIDIA_TESLA_T4
         acceleratorCount: 1
     replicaCount: 1
     containerSpec:
-        imageUri: gcr.io/adroit-chemist-447918-n1/training_image:latest
+        imageUri: europe-west1-docker.pkg.dev/adroit-chemist-447918-n1/docker/training_image:latest
+        env:
+        - name: WANDB_API_KEY
+          value: ${WANDB_API_KEY}
