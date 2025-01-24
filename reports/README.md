@@ -354,12 +354,12 @@ During the experiments, we log important events and metrics using the `loguru` l
 >
 > Answer:
 
---- question 14 fill here ---
+In our experiments, we used Weights & Biases (W&B) to track our metrics and visualize the performance of our model. The following screenshots show some of the metrics we tracked during our experiments.
 
-![Profiler Example 1](figures/profile1.jpeg)![](figures/profile1.jpeg)
-![Profiler Example 2](figures/profile2.jpeg)![](figures/profile2.jpeg)
-![WandB Example 1](figures/wandb1.jpeg)![](figures/wandb1.jpeg)
+![WandB Experiment 1](figures/1_epochs.png)
+![WandB Experiment 2](figures/5_epochs.png)
 
+Here, the first picture is of an experiment where our model ran for only one epoch since it took about 5 hours to train a single epoch. However, we felt that it didnt show if the model would generalize well to unforseen data. Therefore, we ran another experiment with the same parameters, as the first experiment, but just over five epochs instead of only one epoch. This is what we see in the second picture. As seen in the images, we did track the training and validation loss over the epochs. This was done because tracking the loss is a great way to try and understand how well the model is learning from the training data and how well it generalizes to unseen validation data. A decreasing training loss indicates that the model is fitting well to the training data. And a decreasing validation loss suggests that the model is generalizing well to new unseen data. This is the case for our experiment, the one that ran for 5 epochs, which can see in the second picture.
 
 ### Question 15
 
