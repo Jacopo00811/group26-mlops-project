@@ -431,9 +431,7 @@ Together, these GCP services provided a robust infrastructure for storage, compu
 >
 > Answer:
 
---- question 18 fill here ---
-
-Suggested VM from course
+We did not manage to get our model running on the GCP Compute Engine due to dependency issues with the PyTorch base layer and our own requirements file. However, if we had managed to resolve these issues, we would have used the Compute Engine to run our model training and inference tasks. Based on the course suggestions, we would have selected a VM with high specs such as a virtual machine with a high-end NVIDIA GPU (like the Tesla T4 or V100). These specs would have provided the necessary computing power to train our model without taking too much time per epoch.
 
 ### Question 19
 
