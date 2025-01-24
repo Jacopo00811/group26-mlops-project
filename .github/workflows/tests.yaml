@@ -95,7 +95,7 @@ jobs:
 
   build:
     needs: test
-    if: ${{ github.event_name == 'merge' && github.base_ref == 'main' }}
+    if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
