@@ -2,6 +2,10 @@
 
 Translate short sentences from Danish to English using LLM
 
+# Documentation
+
+For this project, MkDocs was used to document the code aspect in this project. It was published to GitHub Pages, and here is the the link: https://jacopo00811.github.io/group26-mlops-project/
+
 # Project description
 **Overall goal of the project**
 
@@ -19,7 +23,7 @@ The dataset used in this project is called "opus-Danish-to-English" and can be f
 
 As mentioned before, we plan on using a pre-trained model from the transformer framework. To be more specific, we expect to use a pre-trained model found on Hugging Face called "t5-small" which can be found [here](https://huggingface.co/google-t5/t5-small). This model has been chosen because of its relative small size (60.5M parameters) and its ability to translate languages.
 
-## Project structure
+# Project structure
 
 The directory structure of the project looks like this:
 ```txt
