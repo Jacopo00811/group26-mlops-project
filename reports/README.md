@@ -517,7 +517,7 @@ We did manage to write an API for our model using FastAPI. The API provides an e
 
 --- question 24 fill here ---
 
-Currently locally -- hpoefulyl cloud.
+The API, with its front and back end, has been deploy on google cloud using the RUN service. The backend consist in a post request where the user can send the string, in Danish, for it to be translated into English. The API can be reached form CURL commands or the front end itself, where a nice text box and some instructions are provided to the user.
 
 ### Question 25
 
@@ -533,10 +533,12 @@ Currently locally -- hpoefulyl cloud.
 > Answer:
 
 --- question 25 fill here ---
-
-We also did load testing which can be seen in the below pictures:
+Unit test for the API have been performed and have been added to the GitHub continuous integration flow. These test need a model to be able to run. The model is firstly pulled using dvc then used to create the API. Afterwards we used locust to do some simple load testing as it can be seen in the following pictures:
 ![Load Testing](figures/Load_testing_with_locus.png)
 ![Load Testing](figures/Load_testing_with_locus2.png)
+Locust run with the following parameters:
+``` locust -f tests/performancetests/locust.py --headless --users 10 --spawn-rate 1 --run-time 1m --host https://api-695110242648.europe-west1.run.app ```
+Did not create any issues to the Google Cloud Run services as can be seen in the pictures above.
 
 ### Question 26
 
