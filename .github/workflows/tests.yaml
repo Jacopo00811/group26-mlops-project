@@ -84,10 +84,18 @@ jobs:
           coverage run --source=danish_to_english_llm -m pytest tests/unit_tests/
           coverage report -m
 
+      - name: Pull model data
+        run: dvc pull --no-run-cache --force
+
+      - name: Run API tests
+        run: |
+          coverage run --source=danish_to_english_llm -m pytest tests/integrationtests/
+          coverage report -m
+
 
   build:
     needs: test
-    if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' }}
+    if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

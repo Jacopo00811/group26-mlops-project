@@ -25,3 +25,6 @@ docker
 # profiling
 tensorboard
 torch-tb-profiler
+
+# api tests
+httpx
