@@ -515,9 +515,7 @@ We did manage to write an API for our model using FastAPI. The API provides an e
 >
 > Answer:
 
---- question 24 fill here ---
-
-The API, with its front and back end, has been deploy on google cloud using the RUN service. The backend consist in a post request where the user can send the string, in Danish, for it to be translated into English. The API can be reached form CURL commands or the front end itself, where a nice text box and some instructions are provided to the user.
+The API, with its front and back end, has been deploy on google cloud using the RUN service. The backend of the API consist in a post request where the user can send the string, in Danish, for it to be translated into English. The API can be reached from CURL commands or the front end of the API itself, where a nice text box and some instructions are provided to the user. To deploy the API, we containerized the application using Docker and pushed the image to Google Artifact Registry. From there, we used Google Cloud Run to deploy the containerized application.
 
 ### Question 25
 
