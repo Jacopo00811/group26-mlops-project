@@ -85,7 +85,7 @@ jobs:
           coverage report -m
 
       - name: Pull model data
-        run: dvc pull --no-run-cache
+        run: dvc pull --no-run-cache --force
 
       - name: Run API tests
         run: |
