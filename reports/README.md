@@ -88,7 +88,7 @@ will check the repositories and the code to verify your answers.
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
-* [] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
+* [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
 * [x] Create a frontend for your API (M26)
 
 ### Week 3
@@ -354,7 +354,7 @@ During the experiments, we log important events and metrics using the `loguru` l
 >
 > Answer:
 
-In our experiments, we used Weights & Biases (W&B) to track our metrics and visualize the performance of our model. The following screenshots show some of the metrics we tracked during our experiments.
+We managed to train our model locally twice. In our experiments, we used Weights & Biases (W&B) to track our metrics and visualize the performance of our model. The following screenshots show some of the metrics we tracked during our experiments.
 
 ![WandB Experiment 1](figures/1_epochs.png)
 ![WandB Experiment 2](figures/5_epochs.png)
@@ -567,7 +567,7 @@ We did not manage to implement monitoring for our model. However, implementing m
 >
 > Answer:
 
-Over the entire run of this course, we ended up spending a total of about fifteen American dollars. The service that ended up cosing the most was the Compute Engine. It took up about fourteen American dollars out of the total 15 American dollars spent during this course. The reason for this was primarily because of the time spent trying to setting up, running and debugging our environment. Since we ran into constant dependency issues with the PyTorch base layer and our own requirements, a lot of time was wasted on failed setup attempts and reruns. For this reason, we think that working in the cloud was frustrating and inefficient. Despite the posibility of being able to scale and use better VMs, we found the cloud to be more trouble than help unfortunately. In hindsight, the time spent on cloud-related issues could have been used better on refining and training the model locally if we wanted a better model. However, since this is MLOps, cloud environments and their challenges is an essential part of the learning process even if they are frustrating.
+Over the entire run of this course, we ended up spending a total of about fifteen American dollars. The service that ended up cosing the most was the Compute Engine. It took up about fourteen out of the total fifteen dollars spent during this course. The reason for this was primarily because of the time spent trying to setting up, running and debugging our environment. Since we ran into constant dependency issues with the PyTorch base layer and our own requirements, a lot of time was wasted on failed setup attempts and reruns. For this reason, we think that working in the cloud was frustrating and inefficient. Despite the posibility of being able to scale and use better VMs, we found the cloud to be more trouble than help unfortunately. In hindsight, the time spent on cloud-related issues could have been used better on refining and training the model locally if we wanted a better model. However, since this is MLOps, cloud environments and their challenges is an essential part of the learning process even if they are frustrating.
 
 ### Question 28
 
@@ -586,6 +586,8 @@ Over the entire run of this course, we ended up spending a total of about fiftee
 --- question 28 fill here ---
 
 Frontend.
+
+Yes, we implemented a frontend for our API
 
 ### Question 29
 
