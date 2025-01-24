@@ -606,6 +606,8 @@ Addidtionally implemented MkDocs to write documentation for our code. Additional
 
 --- question 29 fill here ---
 
+![Architecture](figures/architecture.png)
+
 Later.
 
 ### Question 30
