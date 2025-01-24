@@ -52,6 +52,8 @@ class TranslationDataset(Dataset):
         if mode not in ["train", "val", "test"]:
             logger.error(f"Invalid mode: {mode}")
             raise ValueError("Invalid mode. Please choose from 'train', 'val', or 'test'.")
+        if os.path.exists("/gcs/group26_mlops_data_bucket/data"):
+            data_dir = "/gcs/group26_mlops_data_bucket/data"
 
         self.mode = mode
         self.tokenizer = tokenizer
