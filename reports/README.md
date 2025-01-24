@@ -85,8 +85,8 @@ will check the repositories and the code to verify your answers.
 * [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [x] Create a FastAPI application that can do inference using your model (M22)
-* [x] Deploy your model in GCP using either Functions or Run as the backend (M23)
-* [x] Write API tests for your application and setup continues integration for these (M24)
+* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
 * [x] Create a frontend for your API (M26)
@@ -608,7 +608,11 @@ Addidtionally implemented MkDocs to write documentation for our code. Additional
 
 ![Architecture](figures/architecture.png)
 
-Later.
+The figure illustrates the machine learning operations pipeline for developing, testing, and deploying our model for translating danish to english sentences. The process begins with development or training on a local machine, where different experiments are being ran. Tools such as Weights & Biases (W&B) are utilized for tracking experiment results, while Hydra is used to manage configurations efficiently. Once the experiments are validated locally, we can commit changes to the GitHub repository using a pre-commit hook to ensure that the commits follow our defined coding standards.
+
+When pushing code to our GitHub repository, automated workflows are triggered via GitHub Actions. These workflows handle tasks such as running unit tests, checking code style and quality using Ruff, validating type consistency with MyPy, generating documentation using MkDocs, and measuring test coverage. If all checks are passed successfully, the pipeline proceeds to containerization.
+
+The validated code is built into a Docker image, which is then pushed to a container registry. This registry stores the latest build. Thereby making it accessible for deployment. The Docker image is pulled and deployed on an AI platform, which serves as the infrastructure to host and run the machine learning model. However, the deployment of the best-performing model has not been implemented yet. Users will then interact with the deployed model via an API frontend. And here they can submit queries to the server for translating danish sentences into english.
 
 ### Question 30
 
