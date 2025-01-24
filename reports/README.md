@@ -157,7 +157,7 @@ In our project, we used the `transformers` as the third-party package. It is fro
 >
 
 To manage dependancies we used the `uv` package manager because it allows for simple package installation and ensures
-consistent environments across different machines. After downloading and installing `uv`, running `uv venv` will create
+consistent environments across different machines using requirements.txt files. After downloading and installing `uv`, running `uv venv` will create
 your virtual environment then running `uv init` will create the `pyproject.toml` and `uv.lock` in the project.
 To add packages we can run `uv add` for example: `uv add requests`. This command adds the package to `pyproject.toml`,
 updates the `uv.lock` file, and syncs the environment. If needed packages
@@ -202,7 +202,7 @@ Therefore, the overall structure of our project aligns very closers to the templ
 >
 > Answer:
 
-Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and included type annotations throughout the code. Additionally, we followed a clear documentation style using docstrings for all functions and classes. These concepts are important in larger projects because they help maintain consistency, readability, and reduce the likelihood of errors. Linting ensures code adheres to style guidelines, making it easier for multiple developers to collaborate. Type annotations and checking with `mypy` catch potential type errors early, leading to more robust and maintainable code. Documentation provides clarity for others (or yourself) when revisiting the code, improving knowledge transfer and reducing the learning curve. In large projects with many contributors, these practices ensure that the codebase remains clean, understandable, and scalable.
+Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and included type annotations throughout the code. Additionally, we followed a clear documentation style using docstrings for all functions and classes. All of the previously mentioned rules and code quality checks are also implemented in the GitHub workflows and pre-commit hooks so they run automatically every time new code is added. These concepts are important in larger projects because they help maintain consistency, readability, and reduce the likelihood of errors. Linting ensures code adheres to style guidelines, making it easier for multiple developers to collaborate. Type annotations and checking with `mypy` catch potential type errors early, leading to more robust and maintainable code. Documentation provides clarity for others (or yourself) when revisiting the code, improving knowledge transfer and reducing the learning curve. In large projects with many contributors, these practices ensure that the codebase remains clean, understandable, and scalable.
 
 ## Version control
 
@@ -221,7 +221,7 @@ Yes, we implemented `ruff` for linting. For type checking, we used `mypy` and in
 >
 > Answer:
 
-We have implemented seventeen tests in total to ensure the robustness and reliability of our project. We have mainly tested our data code and our model since these are essential parts of our project. And without a well-functioning model and data repository, we would not have a reliable and robout project.
+We have implemented seventeen tests in total to ensure the robustness and reliability of our project. We have mainly tested our data code and our model since these are essential parts of our project. And without a well-functioning model and data repository, we would not have a reliable and roboust project.
 
 ### Question 8
 
@@ -253,7 +253,7 @@ The total code coverage of our code as of now is 31%. However, as we have only t
 
 Yes, we used feature branches and pull requests (PRs) as part of our version control process. Each team member worked on their own branch, isolated from the `main` branch, to implement features or fix bugs. When the work was ready, a pull request was created to propose merging the changes back into main.
 
-To ensure stability and code quality, each PR included automated tests that ran as part of the CI/CD pipeline. This ensured that before code was merged, it passed all unit tests, integration tests, and any other relevant checks. This step was crucial in maintaining code reliability, as it caught regressions or potential issues early in the review process. Any failing tests would block the merge, forcing us to address issues before integration.
+To ensure stability and code quality, each PR included automated tests that ran as part of the CI/CD pipeline. This ensured that before code was merged, it passed all unit tests, integration tests, and any other relevant checks. Additonaly before it could me merged any pull request needed to be approved and reviewed by another group memeber. This step was crucial in maintaining code reliability, as it caught regressions or potential issues early in the review process. Any failing tests would block the merge, forcing us to address issues before integration.
 
 The use of PRs with automated tests provides a safety net in larger projects, where manual testing alone is not sufficient. It allows for continuous validation of code and ensures that only thoroughly tested, high-quality code is added to the main branch. This improves collaboration, reduces integration problems, and maintains the overall stability of the project.
 
@@ -373,7 +373,7 @@ Here, the first picture is of an experiment where our model ran for only one epo
 >
 > Answer:
 
-Docker is used to run the training file, leveraging an NVIDIA container image for PyTorch as the base. On top of this, the src folder, requirements.txt files, models folder, and config folder are added. The environment is then configured by installing the required packages listed in the requirements.txt files. Additionally, the Docker container is mounted to the data folder and requires an API key to be provided as part of its environment variables at runtime. Furthermore, for every pull request that passes the tests, the Docker image is automatically built on Google Cloud. This setup ensures consistency across different environments and simplifies the deployment process. By using Docker, we can easily share and reproduce our development environment. Thereby making collaboration even more efficient.
+Docker is used to run the training file, leveraging an NVIDIA container image for PyTorch as the base. On top of this, the src folder, requirements.txt files, models folder, and config folder are added. The environment is then configured by installing the required packages listed in the requirements.txt files. Additionally, the Docker container is mounted to the data folder and set up to use an API key in order to log in to WandB account at runtime. Furthermore, for every pull request that gets merged into main the Docker image is automatically built on Google Cloud. This setup ensures consistency across different environments and simplifies the deployment process. By using Docker, we can easily share and reproduce our development environment. Thereby making collaboration even more efficient.
 
 ### Question 16
 
@@ -412,6 +412,8 @@ As for profiling, we did perform a single profiling run of the main code using `
 We used `Cloud Storage Buckets` to store and manage various datasets, models, and output files generated during our experiments. This service provided a reliable and scalable solution for storing large files, ensuring easy access across different team members and project stages.
 
 For compute-intensive tasks such as model training and batch processing, we utilized `Google Compute Engine`. This service allowed us to provision virtual machines (VMs) with the necessary specifications, enabling scalable and on-demand computing power. It was particularly useful for training our model.
+
+Additonaly we used `Cloud Run` to deploy the front and back end APIs for the model.
 
 Finally, we leveraged Artifact Registry to store and manage Docker images. This service helped us securely store our containerized environments, ensuring consistency and reproducibility across different machines and stages of the project. By managing artifacts in one centralized place, we streamlined deployment and version control processes.
 
