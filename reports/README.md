@@ -583,11 +583,9 @@ Over the entire run of this course, we ended up spending a total of about fiftee
 >
 > Answer:
 
---- question 28 fill here ---
+Yes, we did implement some exstra stuff which are not covereed by other questions. To be more specific, we implemented a frontend for our API. The reason for creating the frontend was to provide a user-friendly interface for users where they could easily translate sentences from danish to english. The frontend was implemented using Streamlit. We created a simple interface where users can input Danish text and click a button to get the translated English text. The frontend sends a request to the FastAPI backend, which processes the translation and returns the result.
 
-Frontend.
-
-Yes, we implemented a frontend for our API
+Addidtionally implemented MkDocs to write documentation for our code. Additionally, we published the documentation to GitHub Pages which you can see here: https://jacopo00811.github.io/group26-mlops-project/. We chose MkDocs for our documentation because it is easy to use, integrates well with GitHub Pages, and provides a clean layout for our documentation. It was implemented by creating a `mkdocs.yml` file to define the structure of the documentation. Then we added the docstring-based documentation in Markdown files and organized them in the `docs/source` directory. Lastly, we implemented a workflow file that will update the documentation website if a new fuction with documentation is added.
 
 ### Question 29
 
